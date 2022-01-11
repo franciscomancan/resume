@@ -1,0 +1,9 @@
+OPTIONS
+##########################################
+TCP filtering 
+firewall programs
+enryption (VPN, ssh tunneling, or TLS using the SSL enabled HSQLS and HTTPS variants of the server)
+
+NOTES
+##########################################
+THE PASSWORD FOR THE DEFAULT SYSTEM USER NEEDS TO BE CHANGED FROM THE DEFAULT EMPTY STRING!!!

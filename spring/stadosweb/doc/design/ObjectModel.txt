@@ -1,0 +1,19 @@
+stados Object Model
+###############################################################
+
+StadosUser - generalized for all types, only necessary for those that log into the system (server, admin);
+	only username, pass, first name, last name information necessary to identify an individual
+
+Menu - defines a logical (root) entity that can contain any number of submenus; can be characterized by breakfast, lunch or
+	dinner or as the composition of offerings from all; provides descriptive/meta data for a set of products but is not orderable
+
+(SubMenu, implicit) - a child of a menu node, allowing 0-n categories of a given menu (i.e. beverages, appetizers, entres, etc...);
+	implemented as recursive element of the menu relation (not implemented as it's own object and will have a constrained depth) 
+
+Product - defines an orderable entity, containing details like price and preference (well, medium, etc..),
+
+(SubProduct) - represents a child of a Product node, allowing 0-n SubProduct(s) for a given parent prduct (i.e. fries, cole slaw or salad);
+	implemented as a recursive element of the menuItem relation (not as it's own object and will have a constrained depth) 
+
+Order - defined as an itemized list of orderable objects (MenuItem) along with the necessary customizations/preferences of
+	a customer 

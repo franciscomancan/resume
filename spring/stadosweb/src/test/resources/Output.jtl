@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="7" lt="0" ts="1253086096882" s="false" lb="HTTP Request" rc="Non HTTP response code: java.net.SocketException" rm="Non HTTP response message: socket closed" tn="Thread Group 1-1" dt="text" by="2314"/>
+
+</testResults>

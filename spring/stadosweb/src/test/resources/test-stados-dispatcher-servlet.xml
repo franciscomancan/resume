@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans><!--
+
+	<bean id="publicUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" lazy-init="false" autowire="no" dependency-check="none"> 
+		<property name="interceptors">
+			<list>
+				<ref local="openSessionInViewInterceptor" />
+				<ref local="securityInterceptor" /> 
+			</list>
+		</property>
+		<property name="mappings">
+			<props>
+				<prop key="/mobile/*">mobileRequestController</prop>
+				<prop key="/webapp/*">webappRequestController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="sessionMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/session/*">sessionController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="sessionController" class="com.cs.stadosweb.control.SessionController">
+		<property name="userService">
+			<ref local="userService" /> 
+		</property>
+	</bean>
+
+	<bean id="mobileRequestController" class="com.cs.stadosweb.control.MobileRequestController" 
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="userService">
+			<ref local="userService" /> 
+		</property>
+		<property name="menuService">
+			<ref local="menuService" /> 
+		</property>
+		<property name="invoiceService">
+			<ref local="invoiceService" /> 
+		</property>
+	</bean>
+	
+	<bean id="webappRequestController" class="com.cs.stadosweb.control.WebappRequestController" 
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="userService">
+			<ref local="userService" /> 
+		</property>
+		<property name="menuService">
+			<ref local="menuService" /> 
+		</property>
+		<property name="invoiceService">
+			<ref local="invoiceService" /> 
+		</property>
+	</bean>
+
+	<bean id="securityInterceptor" class="com.cs.stadosweb.SecurityInterceptor"></bean>	
+ 
+	--><bean id="openSessionInViewInterceptor" class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor" 
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" /> 
+		</property>		 
+		<property name="flushModeName">
+			<value>FLUSH_AUTO</value> 
+		</property>
+	</bean>
+
+	<bean id="stadosDatasource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName">
+				<value>com.mysql.jdbc.Driver</value>
+		</property>		
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/stadosdb-test</value>
+		</property>
+		<property name="username">
+			<value>STADOSTESTBOT</value>
+		</property>
+		<property name="password">
+			<value>MOBILE4U</value>
+		</property>
+		<property name="maxIdle">
+			<value>1</value>
+		</property>
+		<property name="maxActive">
+			<value>3</value>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="stadosDatasource" />
+		</property>
+		<property name="annotatedClasses">
+		  <list>
+		    <value>com.cs.stadosweb.domain.impl.Category</value>
+		    <value>com.cs.stadosweb.domain.impl.Invoice</value>
+		    <value>com.cs.stadosweb.domain.impl.Menu</value>
+		    <value>com.cs.stadosweb.domain.impl.Product</value>
+		    <value>com.cs.stadosweb.domain.impl.SystemUser</value>
+		    <value>com.cs.stadosweb.domain.impl.InvoiceProduct</value>
+		    <value>com.cs.stadosweb.domain.impl.Coupon</value>
+		  </list>
+		</property>
+		<!-- pending 
+		<property name="annotatedPackages">
+     	  <list>
+       	    <value>test.package</value>
+          </list>
+   		</property>
+   		-->		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+				<prop key=""></prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- ************************************************************************** --><!--
+	<bean id="invoiceService" factory-method="getInstance"
+		class="com.cs.stadosweb.service.InvoiceService">
+		<property name="invoiceDao">
+			<ref local="invoiceDao"/>
+		</property>
+		<property name="productDao">
+			<ref local="productDao"/>
+		</property>
+	</bean>
+	
+	<bean id="menuService" factory-method="getInstance"
+		class="com.cs.stadosweb.service.MenuService">
+		<property name="productDao">
+			<ref local="productDao"/>
+		</property>
+		<property name="categoryDao">
+			<ref local="categoryDao"/>
+		</property>
+		<property name="menuDao">
+			<ref local="menuDao"/>
+		</property>
+	</bean>
+		
+	<bean id="userService" factory-method="getInstance"
+		class="com.cs.stadosweb.service.UserService">
+		<property name="systemUserDao">
+			<ref local="systemUserDao"/>
+		</property>
+	</bean>
+		
+		
+	--><!-- ************************************************************************** -->
+	<!-- Data Access -->
+	<bean id="systemUserDao"
+		class="com.cs.stadosweb.dao.hibernate.SystemUserHibernateDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="productDao"
+		class="com.cs.stadosweb.dao.hibernate.ProductHibernateDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="categoryDao"
+		class="com.cs.stadosweb.dao.hibernate.CategoryHibernateDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>	 
+	<bean id="menuDao"
+		class="com.cs.stadosweb.dao.hibernate.MenuHibernateDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="invoiceDao"	
+		class="com.cs.stadosweb.dao.hibernate.InvoiceHibernateDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- ************************************************************************** -->
+	<!-- templating -->
+	
+	<bean id="velocityConfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/view/template/" />
+	</bean>
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+		<!-- set caching to true for move to production -->
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".v" />
+
+		<!-- if you want to use the Spring Velocity macros, set this property to true -->
+		<property name="exposeSpringMacroHelpers" value="false" />
+
+	</bean>
+	
+
+</beans>

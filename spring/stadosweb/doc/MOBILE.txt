@@ -1,0 +1,7 @@
+potential mobile jvms:
+	Mysaifu
+	IBM J9 - http://www-128.ibm.com/developerworks/websphere/zones/wireless/weme_eval_runtimes.html?S_CMP=rnav
+	NSICom Creme
+	Skelmir - http://www.skelmir.com/solutions/handheld.html
+	IBM WebSphere Everyplace Micro Environment
+	Esmertec Jeode

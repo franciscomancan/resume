@@ -1,0 +1,3 @@
+install:
+	username: 	admin
+	pass:		st4d0sd3v

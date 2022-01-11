@@ -1,0 +1,114 @@
+____________________________________________________________________________________________________________
+STANDING QUESTIONS
+
+- how do we want to deal with input (pros/cons/real estate)
+
+- leave coupons as is or integrate further (add into categories, track etc...)
+
+- how's the budget
+
+- add notes/news/bulletin?
+____________________________________________________________________________________________________________
+TODOS
+
+- encrypt/encode all general packets from mobile clients
+
+- generate encrypted interface for card submissions
+
+- md5 the password before sending
+
+- generate interface for stylus signatures
+
+- add IP checking for administrative or non-session services (like register),
+	so that these can only be performed from trusted machines (add interface for
+	trusted machines).  a script could register any number of bad users...
+
+- implement delta logic for invoice addition
+
+- add support for voiding/comping invoice items and debug
+	- mobile
+	- webapp DONE
+
+- add support for coupons, invoice credits...
+	- mobile DONE
+	- webapp 
+
+- add pricing back into the app itemized/billed tracking (subtotal, taxing, etc...)
+	- mobile
+	- webapp 
+
+- ensure all hotspots are not repainting (recycle 'em)
+
+- integrate paging
+	- mobile
+	- webapp
+
+- obfuscate js files
+
+- add watchdog for session issue (long-term idle state kills first transaction)
+
+- add unique titles, so system not dependent upon ids
+
+- add jta support due to financial involvement
+
+- implement the 'named pipe' and address binding (no tcp/ip networking, what about port redirects?)
+
+- lock out all unnecessary services for the production machine, in the name of security and performance
+	(generate a list)	
+	
+- noodle details for application monitor/launcher to work for initialization, backup and shutdown of the
+	manager
+
+- generate jmeter runs to test concurrency support
+
+- generate database integrity scripts (python)
+
+- ** address logic when deleting a product, following things have occurred:
+		- the associated category also deletes (fix by cascade setting)
+
+- add cleanup in the mobile client (no finalization in j2me)
+
+- lock down directory listings; remove ability to load app from server (/stadosweb/intall)
+
+- introduce the obfuscation step in build cycle
+
+- writeup a 'getting started' page, giving basic instructions for creating and managing
+	an ideal stados instance
+	
+- see if i can reduce the override enum to int in the database (rather than varchar255)
+____________________________________________________________________________________________________________
+DONES
+
+done - alterations for initial ui suggestions
+
+done - refactor webapp controller for named method calling, to get rid of the 'else' spaghetti
+
+done - change ids to Long type in domain objects (just annoying)
+
+done - refactor model to utilize annotations for flexibility
+
+done - refactor model to add support for num (same) items (i.e. 2 ice tea, etc...) and details
+
+done - setup standalone server for long-term observation
+
+done - change product page to add category as a dropdown and remove 'description'
+
+done - change category page to create a list (remove membership additions, etc... too clumsy)
+	NOTE: this removes flexibility for multiple categories for a given product
+	
+done - add service queues for the following (maybe persist):
+	pending orders (unserved)
+	served orders
+
+done - add 'served' and 'closed' states/indicators to invoices to move order off queue and export invoices
+	for completion/processing, respectively
+	
+done - integrate hotspot object with mobile client for generalized touchpoints and precise coords (custom screens)
+
+done - add reload to order queue, allowing update every 5 sec?
+
+done - debug mobile usage printouts; add options button for exit/options
+
+done - timestamp at expedite
+
+done - add support for manager-only operations on the mobile client
