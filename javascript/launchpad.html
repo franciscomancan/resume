@@ -1,0 +1,69 @@
+<html>
+<head>
+<style>
+a:link { color: #111111; text-decoration: none;}
+a:visited { color: #222222; text-decoration: none;}
+a:hover { color: #8888ee; text-decoration: none;}
+a:active { color: #222222; text-decoration: none;}
+</style>
+<script type="text/javascript">
+<!--
+	function setMainframe(id)
+	{
+		//alert(document.getElementById('signal').innerHTML);
+		document.getElementById('mainframe').innerHTML = document.getElementById(id).innerHTML;
+	}
+//-->
+</script>
+</head>
+<body bgcolor="#DEFFEC" text="#111111" style="font-family:verdana;padding-top:100px; padding-left:100px" onload="setMainframe('common');">
+
+<!-- =============================================== TOOLBAR ================================================================================================== -->
+<div style="width:1000px;font-size:x-large;border-bottom: 1px solid grey";><b>"If you want to lift yourself up, lift up someone else."</b></div>
+<a href="#" onclick="setMainframe('common');">common</a> |
+<a href="#" onclick="setMainframe('next');">next</a>
+<div style="width:80%; padding-top: 7px; font-size:x-large;border-bottom: 1px solid grey"></div>
+<div style="padding-left: 200px;" id="mainframe"></div>
+<!-- ========================================================================================================================================================== -->
+
+<!--
+<audio autoplay>
+	<source src="saguaro-a.small.good.thing.mp3" type="audio/mpeg">
+</audio>
+-->
+
+	<div id="next" style="visibility:hidden;padding-top:30px;padding-left:30px">
+		<h2>programming</h2>
+		<ul type="circle">
+		<li><a href="https://guides.lib.berkeley.edu/sb.php?subject_id=4514">berkeley library</a></li>		
+		</ul>
+	</div>
+
+	<div id="common" style="visibility:hidden;padding-top:30px;padding-left:30px">
+	<table>
+	<tr valign="top">
+		<td width="400">
+		<h2>common</h2>
+		<ul type="circle">
+		<li><a href="https://somafm.com/player/#/all-stations">soma fm radio</a></li>
+		<br/>		
+		<li><a href="https://github.com">github</a></li>
+		</ul>
+		</td>
+		<td>
+		<h2>facilities</h2>
+		<ul type="circle">	
+		<li><a href="http://localhost:8880/commands">zookeeper commands</a></li>
+		<li><a href="http://192.168.56.1:4040">Spark WebUI (using IP)</a> -->
+			<a href="http://localhost:4040">(use localhost if ip changed)</a></li>
+		<li><a href=""></a></li>
+		<br/>
+		<li><a href=""></a></li>
+		</ul>
+		</td>
+	</tr>
+	</table>
+	</div>
+
+</body>
+</html>
