@@ -77,6 +77,8 @@ Reverting/Unstage
   		'git checkout sameFile'
 
 Searching/Viewing:
+
+	'git log -S dontonio --oneline' = search history for instances where dontnio string was added/removed, --all for all branches/tags/blah..
 	'git grep someKindOfString' = searches file in git for string
 	'git grep -n someFunctionOrWhatever' = search for cases of the string and include line numbers in output (similar to 'real' grep)
 	'git grep --count someString' = rollup count of instances per file
@@ -85,8 +87,7 @@ Searching/Viewing:
 	'git diff branch_1...branch_2' = find the diff from common ancestor of 2 branches, use three dots
 	'git log --diff-filter=D --summary' = lists all deleted files throughout the change history, grouped by commit
 	'git log --author=Anthony' = return all commits where Anthony is in the author attribute; Add --all if you intend to search all branches and not just the current commit's ancestors in your repo.	
-	'git log -SZLIB_BUF_MAX --oneline' = If we want to find out for example when the ZLIB_BUF_MAX constant was originally introduced,
-		we can tell Git to only show us the commits that either added or removed that string with the -S option.
+	
 	'git ls-tree -r HEAD' = will list all files ('blobs' only?) from root, recursively, along with a hash of the file itself; look for duplicates of hashes to detect..
 
 Pull Requests:
@@ -96,7 +97,9 @@ Pull Requests:
 		This, of course, wouldn't work if the base branch for #42 was something other than "master". But you get the gist.
 
 
-*************************************************************************************************************************** BELOW IS JUST USAGE OUTPUT FROM GIT COMMAND LINE 
+*************************************************************************************************************************** BELOW IS JUST USAGE OUTPUT FROM 
+```
+GIT COMMAND LINE 
             C:\copperpoint.space\gitcopperpoint\gw7>git help
             usage: git [--version] [--help] [-C <path>] [-c name=value]
                        [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
@@ -139,3 +142,4 @@ Pull Requests:
             
             'git help -a' and 'git help -g' list available subcommands and some concept guides. See 'git help <command>' or 'git help <concept>'
               to read about a specific subcommand or concept.
+```s
