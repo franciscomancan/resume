@@ -1,0 +1,100 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        a:link {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500
+        }
+
+        a:visited {
+            color: #111111;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #999999;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: #222222;
+            text-decoration: none;
+        }
+    </style>
+    <script src="jquery-3.6.2.min.js"></script>
+    <script type="text/javascript">
+        //<!--
+        function setMainframe(id) {
+            ele('mainframe').style.opacity = 0
+            ele('mainframe').innerHTML = ele(id).innerHTML
+
+			// this is an attempt at getting jquery to work
+            //$(ele('id')).fadeIn("slow")
+
+			// this is the simple way of doing things
+			ele('mainframe').style.opacity = 1
+        }
+
+        function ele(id) {
+            return document.getElementById(id)
+        }
+
+        //-->
+    </script>
+</head>
+<body style="font-family:verdana;padding-top:100px;padding-left:100px;" onload="setMainframe('links');">
+
+<div style="width:1000px;font-size:x-large;border-bottom: 1px solid grey"><b>"If you want to lift yourself up, lift up
+    someone else."</b></div>
+<a href="#" onclick="setMainframe('links');">links</a> |
+<a href="#" onclick="setMainframe('samples');">samples</a> |
+<a href="#" onclick="setMainframe('contact');">contact</a>
+
+<div style="width:80%; padding-top: 7px; font-size:x-large;border-bottom: 1px solid grey"></div>
+
+<div style="padding-left: 200px;" id="mainframe"></div>
+
+<div id="links" style="visibility:hidden;padding-top:30px;padding-left:30px">
+    <table>
+        <tr valign="top">
+            <td width="400">
+                <h2>links</h2>
+                <ul type="circle">
+                    <li><a href="">stuff here</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="samples" style="visibility:hidden;padding-top:30px;padding-left:30px">
+    <table>
+        <tr valign="top">
+            <td width="400">
+                <h2>samples</h2>
+                <ul type="circle">
+                    <li><a href="">stuff here</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="contact" style="visibility:hidden;padding-top:30px;padding-left:30px">
+    <table>
+        <tr valign="top">
+            <td width="400">
+                <h2>contact</h2>
+                <ul type="circle">
+                    <li><a href="">stuff here</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

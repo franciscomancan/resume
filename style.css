@@ -1,0 +1,13 @@
+body {
+	font: 'verdana', sans-serif;
+    color: rgba(0,0,0,.5);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    top: 15%;
+ 	background: linear-gradient(to right, #FAF0B9 , #86E39B); /* Standard syntax */
+}
+
+a:link { color: #000000; text-decoration: none; font-weight: 500}
+a:visited { color: #111111; text-decoration: none;}
+a:hover { color: #999999; text-decoration: none;}
+a:active { color: #222222; text-decoration: none;}
