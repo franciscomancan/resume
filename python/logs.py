@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+"""
+Util to download slices of logs for a closer look at the details.  This will
+allow for use of other tools and also avoid the using certain clunky aggregators.
+"""
+
+
+
 # In[1]:
 
 
